@@ -11,6 +11,7 @@ def throw_dice(num_dice):
         total += randint(1, 6)
     return total
 
+
 def blink(times, delay):
     for i in range(times):
         led.on()
