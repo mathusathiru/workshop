@@ -3,19 +3,21 @@ from utime import sleep
 
 led = Pin("LED", Pin.OUT)
 
+
+def blink(times, delay):
+    # counts from 0 to 3
+    for i in range(times):
+        led.on()
+        sleep(delay)
+        led.off()
+        sleep(delay)
+
+
 # emergency SOS message in morse code
 while True:
     # short dot pulses for S
-    for i in range(1, 4):
-        led.on()
-        sleep(0.2)
-        led.off()
-        sleep(0.2)
+    blink(3, 0.2)
     # time sleep between S and O
     sleep(0.4)
-    # long dash pulses for O
-    for i in range(1, 4):
-        led.on()
-        sleep(0.6)
-        led.off()
-        sleep(0.6)
+    # long dash pulses for O, and time sleep between O and S
+    blink(3, 0.6)
