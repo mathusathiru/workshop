@@ -4,6 +4,7 @@ from random import randint
 
 led = Pin("LED", Pin.OUT)
 
+
 def throw_dice(num_dice):
     total = 0
     for i in range(num_dice):
@@ -16,6 +17,7 @@ def blink(times, delay):
         sleep(delay)
         led.off()
         sleep(delay)
+
 
 while True:
     try:
