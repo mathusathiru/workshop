@@ -1,0 +1,18 @@
+name: Check Style
+on: push # runs on every push
+
+jobs:
+  check-style:
+    runs-on: ubuntu-latest # uses the latest Ubuntu runner from GitHub
+    steps:
+      - uses: actions/checkout@v4 # checks out repository code to the runner
+
+      - uses: actions/setup-python@v5 # configures the Python environment
+        with:
+          python-version: '3.11'
+
+      - name: Install pycodestyle # installs the linter
+        run: pip install --upgrade pip pycodestyle
+
+      - name: Check style # runs pycodestyle against the repository
+        run: pycodestyle --first . # stops after the first error per file, checks all Python files
