@@ -55,7 +55,7 @@ try:
         all_off()
         leds["yellow"].value(1)
         time.sleep(amber_time)
-        
+
         print()
 except KeyboardInterrupt:
     print("Shutting down traffic light controller...")
