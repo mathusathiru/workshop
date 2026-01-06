@@ -17,6 +17,7 @@ def all_off():
     for led in leds.values():
         led.value(0)
 
+
 def all_on():
     for led in leds.values():
         led.value(1)
@@ -34,7 +35,7 @@ try:
     while True:
         cycles += 1
         print("Cycle:", cycles)
-        
+
         print("Red")
         all_off()
         leds["red"].value(1)
