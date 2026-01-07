@@ -1,0 +1,1 @@
+This circuit stimulates traffic lights, and an online simulation has been created here https://wokwi.com/projects/452508466467991553
