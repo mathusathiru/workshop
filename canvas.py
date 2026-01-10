@@ -83,7 +83,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_cmd(0x11)
         time.sleep(0.12)
         self.write_cmd(0x21)
-        self.write_cmd(0x21) 
+        self.write_cmd(0x21)
 
         self.write_cmd(0xB1) 
         self.write_data(0x05)
@@ -196,7 +196,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
 
     def display(self):
         # updates the display with the contents of the frame buffer
-        self.SetWindows(0,0,self.width-1,self.height-1)       
+        self.SetWindows(0, 0, self.width-1, self.height-1)
         self.dc(1)
         self.cs(0)
         self.spi.write(self.buffer)
@@ -281,7 +281,7 @@ class Canvas:
         self.refresh_display()
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     # startup message wth instructions
     lcd = LCD_0inch96()   
     lcd.fill(WHITE)   
