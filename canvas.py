@@ -19,8 +19,8 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.height = 80
 
         # pin configuration for the display
-        self.cs = Pin(9,Pin.OUT)  # chip select
-        self.rst = Pin(12,Pin.OUT)  # output for RESET line on hardware
+        self.cs = Pin(9, Pin.OUT)  # chip select
+        self.rst = Pin(12, Pin.OUT)  # output for RESET line on hardware
         self.cs(1)  # deselect the display
 
         # SPI bus configuration to map Pico pins to LCD pins
@@ -75,7 +75,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
 
     def Init(self):
         # initialise the display with a sequence of commands and data
-        self.reset() 
+        self.reset()
         # turn on the backlight at full brightness
         self.backlight(10000)  
 
@@ -175,7 +175,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_cmd(0x29) 
 
     def SetWindows(self, Xstart, Ystart, Xend, Yend):
-        # set the drawing window on the display, adjusting coordinates for panel offset
+        # set drawing window on display, adjust coordinates for panel offset
         Xstart=Xstart+1
         Xend=Xend+1
         Ystart=Ystart+26
@@ -202,14 +202,15 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.spi.write(self.buffer)
         self.cs(1)
 
+
 class Canvas:
     # creates a simple pixel art canvas application for the LCD display
     def __init__(self, lcd):
         self.lcd = lcd
-        self.grid_size = 10 # size of each grid cell in pixels
-        self.cols = 16      # number of columns in the canvas
-        self.rows = 8       # number of rows in the canvas
-        self.canvas = {}    # dictionary to store filled pixels
+        self.grid_size = 10  # size of each grid cell in pixels
+        self.cols = 16  # number of columns in the canvas
+        self.rows = 8  # number of rows in the canvas
+        self.canvas = {}  # dictionary to store filled pixels
         # initial brush position
         self.brush_x = 8
         self.brush_y = 4
@@ -231,8 +232,13 @@ class Canvas:
         for pos, color in self.canvas.items():
             x, y = pos
             # leave a 1 pixel border for grid lines
-            self.lcd.fill_rect(x*self.grid_size+1, y*self.grid_size+1, 
-                             self.grid_size-1, self.grid_size-1, color)
+            self.lcd.fill_rect(
+                x * self.grid_size + 1,
+                y * self.grid_size + 1,
+                self.grid_size - 1,
+                self.grid_size - 1, 
+                color,
+            )
 
     def draw_brush(self):
         # computes pixel position of brush and draws an inset rectangular outline
