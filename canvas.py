@@ -236,7 +236,7 @@ class Canvas:
                 x * self.grid_size + 1,
                 y * self.grid_size + 1,
                 self.grid_size - 1,
-                self.grid_size - 1, 
+                self.grid_size - 1,
                 color,
             )
 
