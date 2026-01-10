@@ -184,7 +184,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_data(0x00)
         self.write_data(Xstart)
         self.write_data(0x00)
-        self.write_data(Xend) 
+        self.write_data(Xend)
 
         self.write_cmd(0x2B)
         self.write_data(0x00)
