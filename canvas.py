@@ -85,7 +85,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_cmd(0x21)
         self.write_cmd(0x21)
 
-        self.write_cmd(0xB1) 
+        self.write_cmd(0xB1)
         self.write_data(0x05)
         self.write_data(0x3A)
         self.write_data(0x3A)
@@ -95,8 +95,8 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_data(0x3A)
         self.write_data(0x3A)
 
-        self.write_cmd(0xB3) 
-        self.write_data(0x05)  
+        self.write_cmd(0xB3)
+        self.write_data(0x05)
         self.write_data(0x3A)
         self.write_data(0x3A)
         self.write_data(0x05)
@@ -120,14 +120,14 @@ class LCD_0inch96(framebuf.FrameBuffer):
 
         self.write_cmd(0xC3)
         self.write_data(0x8D)
-        self.write_data(0x6A)   
+        self.write_data(0x6A)
 
         self.write_cmd(0xC4)
-        self.write_data(0x8D) 
-        self.write_data(0xEE) 
+        self.write_data(0x8D)
+        self.write_data(0xEE)
 
         self.write_cmd(0xC5)
-        self.write_data(0x0E)    
+        self.write_data(0x0E)
 
         # postive and negative voltage gamma control
         self.write_cmd(0xE0)
@@ -166,13 +166,13 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_data(0x0E)
         self.write_data(0x10)
 
-        self.write_cmd(0x3A) 
+        self.write_cmd(0x3A)
         self.write_data(0x05)
 
         self.write_cmd(0x36)
         self.write_data(0xA8)
 
-        self.write_cmd(0x29) 
+        self.write_cmd(0x29)
 
     def SetWindows(self, Xstart, Ystart, Xend, Yend):
         # set drawing window on display, adjust coordinates for panel offset
@@ -283,14 +283,14 @@ class Canvas:
 
 if __name__ == '__main__':
     # startup message wth instructions
-    lcd = LCD_0inch96()   
-    lcd.fill(WHITE)   
-    lcd.text("Pixel Canvas",28,8,BLACK)
-    lcd.hline(10,20,140,BLACK)
-    lcd.text("Arrows: Move",20,30,BLACK)
-    lcd.text("CTRL: Color",20,42,BLACK)
-    lcd.text("A: Fill",20,54,BLACK)    
-    lcd.text("B: Clear",20,66,BLACK)
+    lcd = LCD_0inch96()
+    lcd.fill(WHITE)
+    lcd.text("Pixel Canvas", 28, 8, BLACK)
+    lcd.hline(10, 20, 140, BLACK)
+    lcd.text("Arrows: Move", 20, 30, BLACK)
+    lcd.text("CTRL: Color", 20, 42, BLACK)
+    lcd.text("A: Fill", 20, 54, BLACK)
+    lcd.text("B: Clear", 20, 66, BLACK)
     lcd.display()
     time.sleep(5)
 
@@ -299,13 +299,13 @@ if __name__ == '__main__':
     canvas.refresh_display()
 
     # setup buttons for input
-    KEY_UP = Pin(2,Pin.IN,Pin.PULL_UP)
-    KEY_DOWN = Pin(18,Pin.IN,Pin.PULL_UP)
-    KEY_LEFT = Pin(16,Pin.IN,Pin.PULL_UP)
-    KEY_RIGHT = Pin(20,Pin.IN,Pin.PULL_UP)
-    KEY_CTRL = Pin(3,Pin.IN,Pin.PULL_UP)
-    KEY_A = Pin(15,Pin.IN,Pin.PULL_UP)
-    KEY_B = Pin(17,Pin.IN,Pin.PULL_UP) 
+    KEY_UP = Pin(2, Pin.IN, Pin.PULL_UP)
+    KEY_DOWN = Pin(18, Pin.IN, Pin.PULL_UP)
+    KEY_LEFT = Pin(16, Pin.IN, Pin.PULL_UP)
+    KEY_RIGHT = Pin(20, Pin.IN, Pin.PULL_UP)
+    KEY_CTRL = Pin(3, Pin.IN, Pin.PULL_UP)
+    KEY_A = Pin(15, Pin.IN, Pin.PULL_UP)
+    KEY_B = Pin(17, Pin.IN, Pin.PULL_UP)
 
     while True:
         any_key_pressed = False
