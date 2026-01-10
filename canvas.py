@@ -64,7 +64,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.spi.write(bytearray([buf]))
         self.cs(1)
 
-    def backlight(self,value):
+    def backlight(self, value):
         # set the backlight brightness using PWM on pin 13
         pwm = PWM(Pin(13))
         pwm.freq(1000)
@@ -82,7 +82,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         # initialisation sequence
         self.write_cmd(0x11)
         time.sleep(0.12)
-        self.write_cmd(0x21) 
+        self.write_cmd(0x21)
         self.write_cmd(0x21) 
 
         self.write_cmd(0xB1) 
@@ -176,10 +176,10 @@ class LCD_0inch96(framebuf.FrameBuffer):
 
     def SetWindows(self, Xstart, Ystart, Xend, Yend):
         # set drawing window on display, adjust coordinates for panel offset
-        Xstart=Xstart+1
-        Xend=Xend+1
-        Ystart=Ystart+26
-        Yend=Yend+26
+        Xstart = Xstart + 1
+        Xend = Xend + 1
+        Ystart = Ystart + 26
+        Yend = Yend + 26
         self.write_cmd(0x2A)
         self.write_data(0x00)
         self.write_data(Xstart)
@@ -244,7 +244,12 @@ class Canvas:
         # computes pixel position of brush and draws inset rectangular outline
         x = self.brush_x * self.grid_size
         y = self.brush_y * self.grid_size
-        self.lcd.rect(x+1, y+1, self.grid_size-1, self.grid_size-1, self.brush_color)
+        self.lcd.rect(x + 1,
+                      y + 1,
+                      self.grid_size - 1,
+                      self.grid_size - 1,
+                      self.brush_color
+                      )
 
     def refresh_display(self):
         # refreshes the entire display
