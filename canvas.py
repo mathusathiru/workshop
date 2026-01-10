@@ -192,7 +192,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
         self.write_data(0x00)
         self.write_data(Yend)
 
-        self.write_cmd(0x2C) 
+        self.write_cmd(0x2C)
 
     def display(self):
         # updates the display with the contents of the frame buffer
