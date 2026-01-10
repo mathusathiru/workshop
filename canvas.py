@@ -31,7 +31,7 @@ class LCD_0inch96(framebuf.FrameBuffer):
                        sck=Pin(10),
                        mosi=Pin(11),
                        miso=None)
-        self.dc = Pin(8,Pin.OUT)
+        self.dc = Pin(8, Pin.OUT)
         self.dc(1)
 
         # frame buffer for the display
@@ -70,14 +70,14 @@ class LCD_0inch96(framebuf.FrameBuffer):
         pwm.freq(1000)
         if value >= 1000:
             value = 1000
-        data=int(value * 65536 / 1000)
+        data = int(value * 65536 / 1000)
         pwm.duty_u16(data)
 
     def Init(self):
         # initialise the display with a sequence of commands and data
         self.reset()
         # turn on the backlight at full brightness
-        self.backlight(10000)  
+        self.backlight(10000)
 
         # initialisation sequence
         self.write_cmd(0x11)
@@ -241,7 +241,7 @@ class Canvas:
             )
 
     def draw_brush(self):
-        # computes pixel position of brush and draws an inset rectangular outline
+        # computes pixel position of brush and draws inset rectangular outline
         x = self.brush_x * self.grid_size
         y = self.brush_y * self.grid_size
         self.lcd.rect(x+1, y+1, self.grid_size-1, self.grid_size-1, self.brush_color)
