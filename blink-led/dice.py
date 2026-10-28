@@ -30,16 +30,16 @@ while True:
     except ValueError:
         print("Error: invalid input - enter a number from 1 to 5\n")
 
-print("Press Enter to roll dice or 'q' to quit: ")
+print("Type 'r' to roll dice or 'q' to quit: ")
 
 while True:
     command = input()
     if command.lower() == "q":
         print("Thank you for playing!")
         break
-    elif command != "":
-        print("Error: Invalid input - press Enter to roll, or 'q' to quit")
-    else:
+    elif command.lower() == "r":
         dice_throw = throw_dice(dice)
         print("You rolled a", dice_throw)
         blink(dice_throw, 0.2)
+    else:
+        print("Error: Invalid input - type 'r' to roll or 'q' to quit")
